@@ -13,6 +13,21 @@ public class SanPham implements Serializable {
 
     @Column(name = "TenSanPham", nullable = false)
     private String tenSanPham;
+    
+    @Column(name = "SoGhe")
+    private Integer soGhe;
+    
+    @Column(name = "TruyenDong")
+    private String truyenDong;
+    
+    @Column(name = "NhienLieu")
+    private String nhienLieu;
+    
+    @Column(name = "DiaDiemLayXe")
+    private String diaDiemLayXe;
+    
+    @Column(name = "HangXe")
+    private String hangXe;
 
     @Column(name = "Gia", nullable = false)
     private Double gia;
@@ -23,10 +38,7 @@ public class SanPham implements Serializable {
     @Column(name = "TheLoaiSanPham")
     private String theLoaiSanPham;
 
-    @Column(name = "Description")
-    private String description;
-
-    @ManyToOne
+	@ManyToOne
     @JoinColumn(name = "CategoryID") // Liên kết với bảng DanhMuc
     private DanhMuc danhMuc;
 
@@ -42,76 +54,108 @@ public class SanPham implements Serializable {
     public SanPham() {
     }
 
-    // Getter & Setter
-    public String getProductID() {
-        return productID;
-    }
+	public String getProductID() {
+		return productID;
+	}
 
-    public void setProductID(String productID) {
-        this.productID = productID;
-    }
+	public void setProductID(String productID) {
+		this.productID = productID;
+	}
 
-    public String getTenSanPham() {
-        return tenSanPham;
-    }
+	public String getTenSanPham() {
+		return tenSanPham;
+	}
 
-    public void setTenSanPham(String tenSanPham) {
-        this.tenSanPham = tenSanPham;
-    }
+	public void setTenSanPham(String tenSanPham) {
+		this.tenSanPham = tenSanPham;
+	}
 
-    public Double getGia() {
-        return gia;
-    }
+	public Integer getSoGhe() {
+		return soGhe;
+	}
 
-    public void setGia(Double gia) {
-        this.gia = gia;
-    }
+	public void setSoGhe(Integer soGhe) {
+		this.soGhe = soGhe;
+	}
 
-    public Integer getSoLuongTrongKho() {
-        return soLuongTrongKho;
-    }
+	public String getTruyenDong() {
+		return truyenDong;
+	}
 
-    public void setSoLuongTrongKho(Integer soLuongTrongKho) {
-        this.soLuongTrongKho = soLuongTrongKho;
-    }
+	public void setTruyenDong(String truyenDong) {
+		this.truyenDong = truyenDong;
+	}
 
-    public String getTheLoaiSanPham() {
-        return theLoaiSanPham;
-    }
+	public String getNhienLieu() {
+		return nhienLieu;
+	}
 
-    public void setTheLoaiSanPham(String theLoaiSanPham) {
-        this.theLoaiSanPham = theLoaiSanPham;
-    }
+	public void setNhienLieu(String nhienLieu) {
+		this.nhienLieu = nhienLieu;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDiaDiemLayXe() {
+		return diaDiemLayXe;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDiaDiemLayXe(String diaDiemLayXe) {
+		this.diaDiemLayXe = diaDiemLayXe;
+	}
 
-    public DanhMuc getDanhMuc() {
-        return danhMuc;
-    }
+	public String getHangXe() {
+		return hangXe;
+	}
 
-    public void setDanhMuc(DanhMuc danhMuc) {
-        this.danhMuc = danhMuc;
-    }
+	public void setHangXe(String hangXe) {
+		this.hangXe = hangXe;
+	}
 
-    public List<ChiTietDonHang> getChiTietDonHangs() {
-        return chiTietDonHangs;
-    }
+	public Double getGia() {
+		return gia;
+	}
 
-    public void setChiTietDonHangs(List<ChiTietDonHang> chiTietDonHangs) {
-        this.chiTietDonHangs = chiTietDonHangs;
-    }
+	public void setGia(Double gia) {
+		this.gia = gia;
+	}
 
-    public List<GioHangChiTiet> getGioHangChiTiets() {
-        return gioHangChiTiets;
-    }
+	public Integer getSoLuongTrongKho() {
+		return soLuongTrongKho;
+	}
 
-    public void setChiTietGioHangs(List<GioHangChiTiet> gioHangChiTiets) {
-        this.gioHangChiTiets = gioHangChiTiets;
-    }
+	public void setSoLuongTrongKho(Integer soLuongTrongKho) {
+		this.soLuongTrongKho = soLuongTrongKho;
+	}
+
+	public String getTheLoaiSanPham() {
+		return theLoaiSanPham;
+	}
+
+	public void setTheLoaiSanPham(String theLoaiSanPham) {
+		this.theLoaiSanPham = theLoaiSanPham;
+	}
+
+	public DanhMuc getDanhMuc() {
+		return danhMuc;
+	}
+
+	public void setDanhMuc(DanhMuc danhMuc) {
+		this.danhMuc = danhMuc;
+	}
+
+	public List<ChiTietDonHang> getChiTietDonHangs() {
+		return chiTietDonHangs;
+	}
+
+	public void setChiTietDonHangs(List<ChiTietDonHang> chiTietDonHangs) {
+		this.chiTietDonHangs = chiTietDonHangs;
+	}
+
+	public List<GioHangChiTiet> getGioHangChiTiets() {
+		return gioHangChiTiets;
+	}
+
+	public void setGioHangChiTiets(List<GioHangChiTiet> gioHangChiTiets) {
+		this.gioHangChiTiets = gioHangChiTiets;
+	}
+    
 }
