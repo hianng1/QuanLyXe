@@ -20,6 +20,6 @@ public class HomeController {
 	public String home(Model model) {
 	    List<SanPham> items = SanPhamDAO.findAll();
 	    model.addAttribute("items", items);
-	    return "index";
+	    return "Index";
 	}
 }

@@ -1,6 +1,7 @@
 package poly.edu.Model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import jakarta.persistence.*;
 
@@ -35,10 +36,13 @@ public class SanPham implements Serializable {
     @Column(name = "SoLuongTrongKho")
     private Integer soLuongTrongKho;
 
-    @Column(name = "TheLoaiSanPham")
-    private String theLoaiSanPham;
+    @Column(name = "NgaySanXuat")
+    private Date ngaySanXuat;
+    
+    @Column(name = "BaoHanh")
+    private String baoHanh;
 
-	@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "CategoryID") // Liên kết với bảng DanhMuc
     private DanhMuc danhMuc;
 
@@ -50,9 +54,29 @@ public class SanPham implements Serializable {
     @OneToMany(mappedBy = "sanPham")
     private List<GioHangChiTiet> gioHangChiTiets;
 
-    // Constructor không tham số
-    public SanPham() {
-    }
+	public SanPham(String productID, String tenSanPham, Integer soGhe, String truyenDong, String nhienLieu,
+			String diaDiemLayXe, String hangXe, Double gia, Integer soLuongTrongKho, Date ngaySanXuat, String baoHanh,
+			DanhMuc danhMuc, List<ChiTietDonHang> chiTietDonHangs, List<GioHangChiTiet> gioHangChiTiets) {
+		super();
+		this.productID = productID;
+		this.tenSanPham = tenSanPham;
+		this.soGhe = soGhe;
+		this.truyenDong = truyenDong;
+		this.nhienLieu = nhienLieu;
+		this.diaDiemLayXe = diaDiemLayXe;
+		this.hangXe = hangXe;
+		this.gia = gia;
+		this.soLuongTrongKho = soLuongTrongKho;
+		this.ngaySanXuat = ngaySanXuat;
+		this.baoHanh = baoHanh;
+		this.danhMuc = danhMuc;
+		this.chiTietDonHangs = chiTietDonHangs;
+		this.gioHangChiTiets = gioHangChiTiets;
+	}
+
+	public SanPham() {
+		super();
+	}
 
 	public String getProductID() {
 		return productID;
@@ -126,12 +150,20 @@ public class SanPham implements Serializable {
 		this.soLuongTrongKho = soLuongTrongKho;
 	}
 
-	public String getTheLoaiSanPham() {
-		return theLoaiSanPham;
+	public Date getNgaySanXuat() {
+		return ngaySanXuat;
 	}
 
-	public void setTheLoaiSanPham(String theLoaiSanPham) {
-		this.theLoaiSanPham = theLoaiSanPham;
+	public void setNgaySanXuat(Date ngaySanXuat) {
+		this.ngaySanXuat = ngaySanXuat;
+	}
+
+	public String getBaoHanh() {
+		return baoHanh;
+	}
+
+	public void setBaoHanh(String baoHanh) {
+		this.baoHanh = baoHanh;
 	}
 
 	public DanhMuc getDanhMuc() {
@@ -157,5 +189,7 @@ public class SanPham implements Serializable {
 	public void setGioHangChiTiets(List<GioHangChiTiet> gioHangChiTiets) {
 		this.gioHangChiTiets = gioHangChiTiets;
 	}
+
     
 }
+
