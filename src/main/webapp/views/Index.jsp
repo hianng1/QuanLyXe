@@ -26,10 +26,15 @@
             <tr>
                 <th>ID</th>
                 <th>Tên sản phẩm</th>
+                <th>Số ghế</th>
+                <th>Truyền động</th>
+                <th>Nhiên liệu</th>
+                <th>Địa điểm lấy xe</th>
                 <th>Hãng xe</th>
                 <th>Giá</th>
                 <th>Số lượng trong kho</th>
-                <th>Địa điểm lấy xe</th>
+                <th>Ngày sản xuất</th>
+                <th>Bảo hành</th>
             </tr>
         </thead>
         <tbody>
@@ -37,10 +42,16 @@
                 <tr>
                     <td>${item.productID}</td>
                     <td>${item.tenSanPham}</td>
+                    <td>${item.soGhe}</td>
+                    <td>${item.truyenDong}</td>
+                    <td>${item.nhienLieu}</td>
+                    <td>${item.diaDiemLayXe}</td>
                     <td>${item.hangXe}</td>
                     <td>${item.gia}</td>
                     <td>${item.soLuongTrongKho}</td>
-                    <td>${item.diaDiemLayXe}</td>
+                    <td>${item.ngaySanXuat}</td>
+                    <td>${item.baoHanh}</td>
+                    
                 </tr>
             </c:forEach>
         </tbody>
