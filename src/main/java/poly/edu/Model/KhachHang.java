@@ -23,6 +23,9 @@ public class KhachHang implements Serializable {
 
     @Column(name = "MatKhau", nullable = false)
     private String matKhau;
+    
+    @Column(name = "DiaChi", nullable = false)
+    private String diaChi;
 
     @Column(name = "VaiTro")
     private Boolean vaiTro;
@@ -39,68 +42,77 @@ public class KhachHang implements Serializable {
     public KhachHang() {
     }
 
-    // Getter & Setter
-    public String getUserID() {
-        return userID;
-    }
+	public String getUserID() {
+		return userID;
+	}
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
 
-    public String getTenKhachHang() {
-        return tenKhachHang;
-    }
+	public String getTenKhachHang() {
+		return tenKhachHang;
+	}
 
-    public void setTenKhachHang(String tenKhachHang) {
-        this.tenKhachHang = tenKhachHang;
-    }
+	public void setTenKhachHang(String tenKhachHang) {
+		this.tenKhachHang = tenKhachHang;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Integer getSoDienThoai() {
-        return soDienThoai;
-    }
+	public Integer getSoDienThoai() {
+		return soDienThoai;
+	}
 
-    public void setSoDienThoai(Integer soDienThoai) {
-        this.soDienThoai = soDienThoai;
-    }
+	public void setSoDienThoai(Integer soDienThoai) {
+		this.soDienThoai = soDienThoai;
+	}
 
-    public String getMatKhau() {
-        return matKhau;
-    }
+	public String getMatKhau() {
+		return matKhau;
+	}
 
-    public void setMatKhau(String matKhau) {
-        this.matKhau = matKhau;
-    }
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
+	}
 
-    public Boolean getVaiTro() {
-        return vaiTro;
-    }
+	public String getDiaChi() {
+		return diaChi;
+	}
 
-    public void setVaiTro(Boolean vaiTro) {
-        this.vaiTro = vaiTro;
-    }
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
 
-    public List<DonHang> getDonHangs() {
-        return donHangs;
-    }
+	public Boolean getVaiTro() {
+		return vaiTro;
+	}
 
-    public void setDonHangs(List<DonHang> donHangs) {
-        this.donHangs = donHangs;
-    }
+	public void setVaiTro(Boolean vaiTro) {
+		this.vaiTro = vaiTro;
+	}
 
-    public GioHang getGioHang() {
-        return gioHang;
-    }
+	public List<DonHang> getDonHangs() {
+		return donHangs;
+	}
 
-    public void setGioHang(GioHang gioHang) {
-        this.gioHang = gioHang;
-    }
+	public void setDonHangs(List<DonHang> donHangs) {
+		this.donHangs = donHangs;
+	}
+
+	public GioHang getGioHang() {
+		return gioHang;
+	}
+
+	public void setGioHang(GioHang gioHang) {
+		this.gioHang = gioHang;
+	}
+
+    
 }

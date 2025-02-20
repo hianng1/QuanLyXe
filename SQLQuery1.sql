@@ -27,3 +27,31 @@ VALUES
 ('SP009', N'Xe BMW X5 2023', 5, N'Tự động', N'Xăng', N'Hồ Chí Minh', N'BMW', 3500000000.00, 2, 'DM02', '2023-09-01', N'6 năm'),
 ('SP010', N'Xe Audi Q7 2023', 7, N'Tự động', N'Xăng', N'Đà Nẵng', N'Audi', 4000000000.00, 1, 'DM02', '2023-10-01', N'6 năm');
 
+-- Chèn dữ liệu mẫu
+INSERT INTO nhan_vien(staffid, ten_nhan_vien, email, so_dien_thoai, mat_khau, vai_tro)
+VALUES 
+('NV001', N'Nguyễn Văn A', 'nva@example.com', 123456789, 'password123', 1), -- Quản lý
+('NV002', N'Trần Thị B', 'ttb@example.com', 987654321, 'password456', 0), -- Nhân viên bình thường
+('NV003', N'Lê Văn C', 'lvc@example.com', 555555555, 'password789', 0), -- Nhân viên bình thường
+('NV004', N'Phạm Thị D', 'ptd@example.com', 111111111, 'password101', 1); -- Quản lý
+
+-- Chèn dữ liệu mẫu
+INSERT INTO ma_khuyen_mai(CouponID, ma_khuyen_mai, phan_tram_giam, han_su_dung)
+VALUES 
+('CP001', 'SUMMER2023', 10.50, '2023-12-31'), -- Giảm 10.5%, hết hạn vào 31/12/2023
+('CP002', 'FALLSALE', 15.00, '2023-11-15'), -- Giảm 15%, hết hạn vào 15/11/2023
+('CP003', 'WINTER2024', 20.00, '2024-02-28'), -- Giảm 20%, hết hạn vào 28/02/2024
+('CP004', 'NEWYEAR2024', 25.00, '2024-01-31'); -- Giảm 25%, hết hạn vào 31/01/2024
+
+INSERT INTO khach_hang (userID, ten_khach_hang, email, so_dien_thoai, dia_chi, mat_khau, vai_tro)
+VALUES
+('KH001', 'Nguyen Van A', 'nguyenvana@example.com', 0912345678, '123 Đường ABC, Quận 1, TP.HCM', 'password123', 0),
+('KH002', 'Tran Thi B', 'tranthib@example.com', 0912345679, '456 Đường XYZ, Quận 2, TP.HCM', 'password123', 0),
+('KH003', 'Le Van C', 'levanc@example.com', 0912345680, '789 Đường DEF, Quận 3, TP.HCM', 'password123', 0),
+('KH004', 'Pham Thi D', 'phamthid@example.com', 0912345681, '321 Đường GHI, Quận 4, TP.HCM', 'password123', 0),
+('KH005', 'Hoang Van E', 'hoangvane@example.com', 0912345682, '654 Đường JKL, Quận 5, TP.HCM', 'password123', 0),
+('KH006', 'Vu Thi F', 'vuthif@example.com', 0912345683, '987 Đường MNO, Quận 6, TP.HCM', 'password123', 0),
+('KH007', 'Do Van G', 'dovang@example.com', 0912345684, '111 Đường PQR, Quận 7, TP.HCM', 'password123', 0),
+('KH008', 'Mai Thi H', 'maithih@example.com', 0912345685, '222 Đường STU, Quận 8, TP.HCM', 'password123', 0),
+('KH009', 'Dang Van I', 'dangvani@example.com', 0912345686, '333 Đường VWX, Quận 9, TP.HCM', 'password123', 0),
+('KH010', 'Bui Thi K', 'buithik@example.com', 0912345687, '444 Đường YZZ, Quận 10, TP.HCM', 'password123', 0);
