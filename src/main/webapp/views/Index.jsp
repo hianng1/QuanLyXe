@@ -126,21 +126,26 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="sp" items="${sanPhamList}">
-                <tr>
-                    <td>${sp.productID}</td>
-                    <td>${sp.tenSanPham}</td>
-                    <td>${sp.soGhe}</td>
-                    <td>${sp.truyenDong}</td>
-                    <td>${sp.nhienLieu}</td>
-                    <td>${sp.diaDiemLayXe}</td>
-                    <td>${sp.hangXe}</td>
-                    <td>${sp.gia}</td>
-                    <td>${sp.soLuongTrongKho}</td>
-                    <td>${sp.ngaySanXuat}</td>
-                    <td>${sp.baoHanh}</td>
-                </tr>
-            </c:forEach>
+		    <c:forEach var="sp" items="${sanPhamList}">
+		        <tr>
+		            <td>${sp.productID}</td>
+		            <td>${sp.tenSanPham}</td>
+		            <td>${sp.soGhe}</td>
+		            <td>${sp.truyenDong}</td>
+		            <td>${sp.nhienLieu}</td>
+		            <td>${sp.diaDiemLayXe}</td>
+		            <td>${sp.hangXe}</td>
+		            <td>${sp.gia}</td>
+		            <td>${sp.soLuongTrongKho}</td>
+		            <td>${sp.ngaySanXuat}</td>
+		            <td>${sp.baoHanh}</td>
+		            <td>
+		                <img src="/imgs/${sp.anhDaiDien}" alt="${sp.tenSanPham}" width="100"/>
+		            </td>
+		        </tr>
+		    </c:forEach>
+		</tbody>
+
         </tbody>
     </table>
 
