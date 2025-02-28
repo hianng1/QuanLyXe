@@ -11,11 +11,13 @@ import poly.edu.DAO.DanhMucDAO;
 import poly.edu.DAO.KhachHangDAO;
 import poly.edu.DAO.MaKhuyenMaiDAO;
 import poly.edu.DAO.NhanVienDAO;
+import poly.edu.DAO.PhuKienOtoDAO;
 import poly.edu.DAO.SanPhamDAO;
 import poly.edu.Model.DanhMuc;
 import poly.edu.Model.KhachHang;
 import poly.edu.Model.MaKhuyenMai;
 import poly.edu.Model.NhanVien;
+import poly.edu.Model.PhuKienOto;
 import poly.edu.Model.SanPham;
 
 @Controller
@@ -30,8 +32,10 @@ public class HomeController {
     private KhachHangDAO KhachHangDAO;
     @Autowired
     private MaKhuyenMaiDAO maKhuyenMaiDAO;
+    @Autowired
+    private PhuKienOtoDAO phuKienOtoDAO;
 
-    @GetMapping("/trangchu")
+    @GetMapping(value = "/trangchu", produces = "text/html; charset=UTF-8")
     public String home(Model model) {
         try {
             List<SanPham> sanPhamList = sanPhamDAO.findAll();
@@ -44,10 +48,12 @@ public class HomeController {
             model.addAttribute("khachHangList", khachHangList);
             List<MaKhuyenMai> maKhuyenMaiList = maKhuyenMaiDAO.findAll();
             model.addAttribute("maKhuyenMaiList", maKhuyenMaiList);
+            List<PhuKienOto> phuKienOtoList = phuKienOtoDAO.findAll();
+            model.addAttribute("phuKienOtoList", phuKienOtoList);
             
         } catch (Exception e) {
             model.addAttribute("error", "Lỗi khi lấy danh sách sản phẩm: " + e.getMessage());
         }
-        return "Index";
+        return "index2";
     }
 }

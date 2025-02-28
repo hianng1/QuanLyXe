@@ -1,5 +1,5 @@
-﻿create database QuanLyXe;
-use QuanLyXe;
+﻿create database QuanLyXe2;
+use QuanLyXe2;
 
 INSERT INTO danh_muc(CategoryID, ten_danh_muc, mo_ta)
 VALUES
@@ -12,20 +12,30 @@ VALUES
 ('DM07', N'MPV', N'Dòng xe đa dụng, nhiều chỗ ngồi, phù hợp cho gia đình lớn'),
 ('DM08', N'Xe sang', N'Dòng xe cao cấp, sang trọng, dành cho giới thượng lưu'),
 ('DM09', N'Xe thể thao', N'Dòng xe hiệu suất cao, thiết kế thể thao'),
-('DM10', N'Xe cổ điển', N'Dòng xe cổ điển, phục vụ sưu tầm và giải trí');
+('DM10', N'Xe cổ điển', N'Dòng xe cổ điển, phục vụ sưu tầm và giải trí'),
+('DM11', N'Camera hành trình', N'Ghi lại hành trình di chuyển, hỗ trợ lái xe an toàn'),
+('DM12', N'Cảm biến áp suất lốp', N'Giúp kiểm soát áp suất lốp, đảm bảo an toàn khi lái xe'),
+('DM13', N'Bọc ghế da', N'Tăng tính thẩm mỹ và bảo vệ ghế xe khỏi mài mòn'),
+('DM14', N'Thanh giá nóc', N'Hỗ trợ chở hàng trên nóc xe, tiện lợi cho các chuyến đi xa'),
+('DM15', N'Bơm lốp ô tô', N'Dụng cụ bơm lốp khẩn cấp, tiện lợi khi đi đường dài'),
+('DM16', N'Gạt mưa', N'Gạt nước kính chắn gió, đảm bảo tầm nhìn khi trời mưa'),
+('DM17', N'Nước hoa ô tô', N'Tạo không gian thơm mát, dễ chịu khi lái xe'),
+('DM18', N'Màn hình giải trí', N'Giải trí đa phương tiện, hỗ trợ kết nối điện thoại và GPS'),
+('DM19', N'Tấm che nắng', N'Giảm nhiệt độ trong xe, bảo vệ nội thất khỏi ánh nắng mặt trời'),
+('DM20', N'Bạt phủ xe', N'Bảo vệ xe khỏi bụi bẩn, nắng mưa khi đỗ xe ngoài trời');
 
-INSERT INTO san_pham (ProductID, ten_san_pham, so_ghe, truyen_dong, nhien_lieu, dia_diem_lay_xe, hang_xe, gia, so_luong_trong_kho, CategoryID, ngay_san_xuat, bao_hanh)
+INSERT INTO san_pham (ProductID, ten_san_pham, so_ghe, truyen_dong, nhien_lieu, dia_diem_lay_xe, hang_xe, gia, so_luong_trong_kho, CategoryID, ngay_san_xuat, bao_hanh, anh_dai_dien)
 VALUES
-('SP001', N'Xe Toyota Camry 2023', 5, N'Tự động', N'Xăng', N'Hà Nội', N'Toyota', 1200000000.00, 10, 'DM01', '2023-01-01', N'3 năm'),
-('SP002', N'Xe Honda CR-V 2023', 7, N'Tự động', N'Xăng', N'Hồ Chí Minh', N'Honda', 1500000000.00, 5, 'DM02', '2023-02-01', N'5 năm'),
-('SP003', N'Xe Ford Ranger 2023', 5, N'Số sàn', N'Dầu', N'Đà Nẵng', N'Ford', 900000000.00, 8, 'DM03', '2023-03-01', N'4 năm'),
-('SP004', N'Xe Hyundai Tucson 2023', 5, N'Tự động', N'Xăng', N'Hải Phòng', N'Hyundai', 1100000000.00, 7, 'DM02', '2023-04-01', N'5 năm'),
-('SP005', N'Xe Mazda CX-5 2023', 5, N'Tự động', N'Xăng', N'Cần Thơ', N'Mazda', 1300000000.00, 6, 'DM02', '2023-05-01', N'5 năm'),
-('SP006', N'Xe VinFast VF e34', 5, N'Tự động', N'Điện', N'Hà Nội', N'VinFast', 800000000.00, 15, 'DM04', '2023-06-01', N'7 năm'),
-('SP007', N'Xe Kia Seltos 2023', 5, N'Tự động', N'Xăng', N'Hồ Chí Minh', N'Kia', 950000000.00, 9, 'DM02', '2023-07-01', N'5 năm'),
-('SP008', N'Xe Mercedes-Benz C200 2023', 5, N'Tự động', N'Xăng', N'Hà Nội', N'Mercedes-Benz', 2500000000.00, 3, 'DM08', '2023-08-01', N'6 năm'),
-('SP009', N'Xe BMW X5 2023', 5, N'Tự động', N'Xăng', N'Hồ Chí Minh', N'BMW', 3500000000.00, 2, 'DM02', '2023-09-01', N'6 năm'),
-('SP010', N'Xe Audi Q7 2023', 7, N'Tự động', N'Xăng', N'Đà Nẵng', N'Audi', 4000000000.00, 1, 'DM02', '2023-10-01', N'6 năm');
+('SP001', N'Xe Toyota Camry 2023', 5, N'Tự động', N'Xăng', N'Hà Nội', N'Toyota', 1200000000.00, 10, 'DM01', '2023-01-01', N'3 năm', N'ToyotaCamry2023.jpg'),
+('SP002', N'Xe Honda CR-V 2023', 7, N'Tự động', N'Xăng', N'Hồ Chí Minh', N'Honda', 1500000000.00, 5, 'DM02', '2023-02-01', N'5 năm', N'HondaCR-V2023.jpg'),
+('SP003', N'Xe Ford Ranger 2023', 5, N'Số sàn', N'Dầu', N'Đà Nẵng', N'Ford', 900000000.00, 8, 'DM03', '2023-03-01', N'4 năm', N'FordRanger2023.jpeg'),
+('SP004', N'Xe Hyundai Tucson 2023', 5, N'Tự động', N'Xăng', N'Hải Phòng', N'Hyundai', 1100000000.00, 7, 'DM02', '2023-04-01', N'5 năm', N'HyundaiTucson2023.jpg'),
+('SP005', N'Xe Mazda CX-5 2023', 5, N'Tự động', N'Xăng', N'Cần Thơ', N'Mazda', 1300000000.00, 6, 'DM02', '2023-05-01', N'5 năm', N'MazdaCX-52023.jpg'),
+('SP006', N'Xe VinFast VF e34', 5, N'Tự động', N'Điện', N'Hà Nội', N'VinFast', 800000000.00, 15, 'DM04', '2023-06-01', N'7 năm', N'VinFastVFe34.jpg'),
+('SP007', N'Xe Kia Seltos 2023', 5, N'Tự động', N'Xăng', N'Hồ Chí Minh', N'Kia', 950000000.00, 9, 'DM02', '2023-07-01', N'5 năm', N'KiaSeltos2023.jpg'),
+('SP008', N'Xe Mercedes-Benz C200 2023', 5, N'Tự động', N'Xăng', N'Hà Nội', N'Mercedes-Benz', 2500000000.00, 3, 'DM08', '2023-08-01', N'6 năm', N'Mercedes-BenzC2002023.jpg'),
+('SP009', N'Xe BMW X5 2023', 5, N'Tự động', N'Xăng', N'Hồ Chí Minh', N'BMW', 3500000000.00, 2, 'DM02', '2023-09-01', N'6 năm', N'BMWX52023.jpg'),
+('SP010', N'Xe Audi Q7 2023', 7, N'Tự động', N'Xăng', N'Đà Nẵng', N'Audi', 4000000000.00, 1, 'DM02', '2023-10-01', N'6 năm', N'AudiQ72023.jpg');
 
 -- Chèn dữ liệu mẫu
 INSERT INTO nhan_vien(staffid, ten_nhan_vien, email, so_dien_thoai, mat_khau, vai_tro)
@@ -55,3 +65,17 @@ VALUES
 ('KH008', 'Mai Thi H', 'maithih@example.com', 0912345685, '222 Đường STU, Quận 8, TP.HCM', 'password123', 0),
 ('KH009', 'Dang Van I', 'dangvani@example.com', 0912345686, '333 Đường VWX, Quận 9, TP.HCM', 'password123', 0),
 ('KH010', 'Bui Thi K', 'buithik@example.com', 0912345687, '444 Đường YZZ, Quận 10, TP.HCM', 'password123', 0);
+
+INSERT INTO phu_kien_oto(accessoryid, ten_phu_kien, mo_ta, gia, so_luong, hang_san_xuat, anh_dai_dien, CategoryID)
+VALUES
+('PK01', N'Camera hành trình Vietmap X9', N'Ghi hình Full HD, hỗ trợ GPS, cảnh báo tốc độ', 2500000, 100, N'Vietmap',N'VietmapX9.jpg', 'DM11'),
+('PK02', N'Cảm biến áp suất lốp Xiaomi 70mai', N'Giám sát áp suất lốp, cảnh báo khi có bất thường', 1200000, 200, N'Xiaomi',N'Xiaomi70mai.jpg', 'DM12'),
+('PK03', N'Bọc ghế da cao cấp', N'Chất liệu da PU, chống thấm, bền đẹp', 3500000, 50, N'AutoLeather', N'bocgheda.jpg','DM13'),
+('PK04', N'Thanh giá nóc Hamer', N'Hỗ trợ chở hàng trên nóc xe, lắp đặt dễ dàng', 2800000, 80, N'Hamer', N'ThanhgianocHamer.jpg','DM14'),
+('PK05', N'Bơm lốp ô tô mini Michelin', N'Bơm nhanh, màn hình LED hiển thị áp suất', 1500000, 120, N'Michelin', N'miniMichelin.jpg','DM15'),
+('PK06', N'Gạt mưa Bosch AeroTwin', N'Gạt nước hiệu quả, bền bỉ trong mọi thời tiết', 600000, 300, N'Bosch', N'BoschAeroTwin.jpg','DM16'),
+('PK07', N'Nước hoa ô tô Areon Ken', N'Hương thơm dịu nhẹ, giúp không gian xe dễ chịu', 250000, 500, N'Areon', N'AreonKe.png','DM17'),
+('PK08', N'Màn hình giải trí Android Gotech', N'Cảm ứng mượt, tích hợp GPS, Youtube, sim 4G', 8000000, 40, N'Gotech', N'AndroidGotech.jpg','DM18'),
+('PK09', N'Tấm che nắng kính lái', N'Phản xạ nhiệt, giữ nội thất xe mát mẻ', 350000, 400, N'AutoShield', N'chenang.jpg','DM19'),
+('PK10', N'Bạt phủ xe chống nước', N'Chất liệu chống tia UV, bảo vệ xe khỏi nắng mưa', 900000, 150, N'CarCover', N'batphuxe.jpg','DM20');
+

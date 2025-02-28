@@ -19,6 +19,9 @@ public class DanhMuc implements Serializable {
 
     @OneToMany(mappedBy = "danhMuc", cascade = CascadeType.ALL)
     private List<SanPham> sanPhams; // Một danh mục có nhiều sản phẩm
+    
+    @OneToMany(mappedBy = "danhMuc", cascade = CascadeType.ALL)
+    private List<PhuKienOto> phuKienOtos;
 
     // Constructor không tham số
     public DanhMuc() {
