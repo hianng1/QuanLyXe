@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
 
 import poly.edu.DAO.DanhMucDAO;
 import poly.edu.DAO.KhachHangDAO;
@@ -56,4 +59,18 @@ public class HomeController {
         }
         return "index2";
     }
+    // CTSP
+    @GetMapping("/details/{productId}")
+    public String getDetailsByProductId(@PathVariable("productId") String productId, Model model) {
+        List<SanPham> details = sanPhamDAO.findByProductId(productId);
+
+        if (details.isEmpty()) {
+            model.addAttribute("message", "Không tìm thấy thông tin chi tiết cho sản phẩm này.");
+        } else {
+            model.addAttribute("details", details);
+        }
+
+        return "Details"; 
+    }
+
 }
