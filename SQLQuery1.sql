@@ -79,3 +79,15 @@ VALUES
 ('PK09', N'Tấm che nắng kính lái', N'Phản xạ nhiệt, giữ nội thất xe mát mẻ', 350000, 400, N'AutoShield', N'chenang.jpg','DM19'),
 ('PK10', N'Bạt phủ xe chống nước', N'Chất liệu chống tia UV, bảo vệ xe khỏi nắng mưa', 900000, 150, N'CarCover', N'batphuxe.jpg','DM20');
 
+INSERT INTO ton_kho (inventoryid, accessoryid, staffid, vi_tri_kho, so_luong, ngay_cap_nhat)
+VALUES
+('TK01', 'PK01', 'NV001', N'Kho Hà Nội', 50, '2024-03-09'),
+('TK02', 'PK02', 'NV002', N'Kho TP.HCM', 100, '2024-03-09'),
+('TK03', 'PK03', 'NV003', N'Kho Đà Nẵng', 30, '2024-03-09'),
+('TK04', 'PK04', 'NV004', N'Kho Hà Nội', 40, '2024-03-09'),
+('TK05', 'PK05', 'NV001', N'Kho TP.HCM', 80, '2024-03-09'),
+('TK06', 'PK06', 'NV002', N'Kho Đà Nẵng', 200, '2024-03-09'),
+('TK07', 'PK07', 'NV003', N'Kho Hà Nội', 300, '2024-03-09'),
+('TK08', 'PK08', 'NV004', N'Kho TP.HCM', 20, '2024-03-09'),
+('TK09', 'PK09', 'NV001', N'Kho Đà Nẵng', 150, '2024-03-09'),
+('TK10', 'PK10', 'NV002', N'Kho Hà Nội', 90, '2024-03-09');

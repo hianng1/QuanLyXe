@@ -56,7 +56,7 @@
       <div class="flex items-center space-x-4">
         <div class="text-center">
           <div class="flex items-center justify-center space-x-2">
-            <a href="">
+            <a href="/cart">
               <h2 class="text-lg font-semibold hover:text-orange-500">
                 My Cart
               </h2>

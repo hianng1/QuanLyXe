@@ -48,15 +48,6 @@ public class SanPham implements Serializable {
     @ManyToOne
     @JoinColumn(name = "CategoryID") // Liên kết với bảng DanhMuc
     private DanhMuc danhMuc;
-
-    // Quan hệ với bảng ChiTietDonHang
-    @OneToMany(mappedBy = "sanPham")
-    private List<ChiTietDonHang> chiTietDonHangs;
-
-    // Quan hệ với bảng ChiTietGioHang
-    @OneToMany(mappedBy = "sanPham")
-    private List<GioHangChiTiet> gioHangChiTiets;
-
 	
 	public SanPham() {
 		super();
@@ -65,8 +56,7 @@ public class SanPham implements Serializable {
 
 	public SanPham(String productID, String tenSanPham, Integer soGhe, String truyenDong, String nhienLieu,
 			String diaDiemLayXe, String hangXe, Double gia, Integer soLuongTrongKho, Date ngaySanXuat, String baoHanh,
-			String anhDaiDien, DanhMuc danhMuc, List<ChiTietDonHang> chiTietDonHangs,
-			List<GioHangChiTiet> gioHangChiTiets) {
+			String anhDaiDien, DanhMuc danhMuc) {
 		super();
 		this.productID = productID;
 		this.tenSanPham = tenSanPham;
@@ -81,8 +71,6 @@ public class SanPham implements Serializable {
 		this.baoHanh = baoHanh;
 		this.anhDaiDien = anhDaiDien;
 		this.danhMuc = danhMuc;
-		this.chiTietDonHangs = chiTietDonHangs;
-		this.gioHangChiTiets = gioHangChiTiets;
 	}
 
 
@@ -215,28 +203,5 @@ public class SanPham implements Serializable {
 		this.danhMuc = danhMuc;
 	}
 
-
-	public List<ChiTietDonHang> getChiTietDonHangs() {
-		return chiTietDonHangs;
-	}
-
-
-	public void setChiTietDonHangs(List<ChiTietDonHang> chiTietDonHangs) {
-		this.chiTietDonHangs = chiTietDonHangs;
-	}
-
-
-	public List<GioHangChiTiet> getGioHangChiTiets() {
-		return gioHangChiTiets;
-	}
-
-
-	public void setGioHangChiTiets(List<GioHangChiTiet> gioHangChiTiets) {
-		this.gioHangChiTiets = gioHangChiTiets;
-	}
-
-	
-
-    
 }
 
