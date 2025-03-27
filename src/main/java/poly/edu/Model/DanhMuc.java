@@ -3,13 +3,19 @@ package poly.edu.Model;
 import java.io.Serializable;
 import java.util.List;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "DanhMuc") // Tên bảng trong CSDL
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class DanhMuc implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CategoryID")
-    private String categoryID;
+    private Long categoryID;
 
     @Column(name = "TenDanhMuc", nullable = false)
     private String tenDanhMuc;
@@ -23,40 +29,4 @@ public class DanhMuc implements Serializable {
     @OneToMany(mappedBy = "danhMuc", cascade = CascadeType.ALL)
     private List<PhuKienOto> phuKienOtos;
 
-    // Constructor không tham số
-    public DanhMuc() {
-    }
-
-    // Getter & Setter
-    public String getCategoryID() {
-        return categoryID;
-    }
-
-    public void setCategoryID(String categoryID) {
-        this.categoryID = categoryID;
-    }
-
-    public String getTenDanhMuc() {
-        return tenDanhMuc;
-    }
-
-    public void setTenDanhMuc(String tenDanhMuc) {
-        this.tenDanhMuc = tenDanhMuc;
-    }
-
-    public String getMoTa() {
-        return moTa;
-    }
-
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
-    }
-
-    public List<SanPham> getSanPhams() {
-        return sanPhams;
-    }
-
-    public void setSanPhams(List<SanPham> sanPhams) {
-        this.sanPhams = sanPhams;
-    }
 }

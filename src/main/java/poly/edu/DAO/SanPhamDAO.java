@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import poly.edu.Model.SanPham;
 
-public interface SanPhamDAO extends JpaRepository<SanPham, String>{
+public interface SanPhamDAO extends JpaRepository<SanPham, Long>{
 //	List<SanPham> findByHangXe(Boolean trangThai);
     // Ví dụ: tìm xe theo hãng xe
     List<SanPham> findByHangXe(String hangXe);

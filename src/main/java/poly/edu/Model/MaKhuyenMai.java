@@ -2,14 +2,23 @@ package poly.edu.Model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "MaKhuyenMai") // Tên bảng trong CSDL
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class MaKhuyenMai implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CouponID")
-    private String couponID;
+    private Long couponID;
 
     @Column(name = "MaKhuyenMai", unique = true, nullable = false)
     private String maKhuyenMai;
@@ -21,40 +30,4 @@ public class MaKhuyenMai implements Serializable {
     @Column(name = "HanSuDung", nullable = false)
     private Date hanSuDung;
 
-    // Constructor không tham số
-    public MaKhuyenMai() {
-    }
-
-    // Getter & Setter
-    public String getCouponID() {
-        return couponID;
-    }
-
-    public void setCouponID(String couponID) {
-        this.couponID = couponID;
-    }
-
-    public String getMaKhuyenMai() {
-        return maKhuyenMai;
-    }
-
-    public void setMaKhuyenMai(String maKhuyenMai) {
-        this.maKhuyenMai = maKhuyenMai;
-    }
-
-    public Double getPhanTramGiam() {
-        return phanTramGiam;
-    }
-
-    public void setPhanTramGiam(Double phanTramGiam) {
-        this.phanTramGiam = phanTramGiam;
-    }
-
-    public Date getHanSuDung() {
-        return hanSuDung;
-    }
-
-    public void setHanSuDung(Date hanSuDung) {
-        this.hanSuDung = hanSuDung;
-    }
 }

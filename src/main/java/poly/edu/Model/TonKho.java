@@ -4,20 +4,27 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "TonKho")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class TonKho implements Serializable {
     @Id
     @Column(name = "InventoryID")
-    private String inventoryID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long inventoryID;
 
-    @ManyToOne
-    @JoinColumn(name = "AccessoryID", nullable = true) // Liên kết với phụ kiện ô tô
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "AccessoryID", nullable = true, referencedColumnName = "AccessoryID") // Liên kết với phụ kiện ô tô
     private PhuKienOto phuKienOTo;
 
-    @ManyToOne
-    @JoinColumn(name = "StaffID", nullable = true) // Nhân viên phụ trách kho
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "StaffID", nullable = true, referencedColumnName = "StaffID") // Nhân viên phụ trách kho
     private NhanVien nhanVien;
 
     @Column(name = "ViTriKho", nullable = false)
@@ -30,68 +37,4 @@ public class TonKho implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date ngayCapNhat;
 
-	public TonKho(String inventoryID, PhuKienOto phuKienOTo, NhanVien nhanVien, String viTriKho, Integer soLuong,
-			Date ngayCapNhat) {
-		super();
-		this.inventoryID = inventoryID;
-		this.phuKienOTo = phuKienOTo;
-		this.nhanVien = nhanVien;
-		this.viTriKho = viTriKho;
-		this.soLuong = soLuong;
-		this.ngayCapNhat = ngayCapNhat;
-	}
-
-	public TonKho() {
-		super();
-	}
-
-	public String getInventoryID() {
-		return inventoryID;
-	}
-
-	public void setInventoryID(String inventoryID) {
-		this.inventoryID = inventoryID;
-	}
-
-	public PhuKienOto getPhuKienOTo() {
-		return phuKienOTo;
-	}
-
-	public void setPhuKienOTo(PhuKienOto phuKienOTo) {
-		this.phuKienOTo = phuKienOTo;
-	}
-
-	public NhanVien getNhanVien() {
-		return nhanVien;
-	}
-
-	public void setNhanVien(NhanVien nhanVien) {
-		this.nhanVien = nhanVien;
-	}
-
-	public String getViTriKho() {
-		return viTriKho;
-	}
-
-	public void setViTriKho(String viTriKho) {
-		this.viTriKho = viTriKho;
-	}
-
-	public Integer getSoLuong() {
-		return soLuong;
-	}
-
-	public void setSoLuong(Integer soLuong) {
-		this.soLuong = soLuong;
-	}
-
-	public Date getNgayCapNhat() {
-		return ngayCapNhat;
-	}
-
-	public void setNgayCapNhat(Date ngayCapNhat) {
-		this.ngayCapNhat = ngayCapNhat;
-	}
-    
-    
 }

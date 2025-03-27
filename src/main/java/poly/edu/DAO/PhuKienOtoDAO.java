@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import poly.edu.Model.PhuKienOto;
 import poly.edu.Model.SanPham;
 
-public interface PhuKienOtoDAO extends JpaRepository<PhuKienOto, String>{
+public interface PhuKienOtoDAO extends JpaRepository<PhuKienOto, Long>{
 	
     // Ví dụ: tìm xe theo tên xe
     List<PhuKienOto> findByTenPhuKien(String tenPhuKien);
-    Optional<PhuKienOto> findById(String id);
+    Optional<PhuKienOto> findById(Long id);
     
 }

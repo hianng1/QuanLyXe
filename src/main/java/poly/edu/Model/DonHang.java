@@ -4,16 +4,23 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "DonHang") // Tên bảng trong CSDL
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class DonHang implements Serializable {
     @Id
     @Column(name = "OrderID")
-    private String orderID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long orderID;
 
     @ManyToOne
-    @JoinColumn(name = "UserID", nullable = false) // Liên kết với bảng KhachHang
+    @JoinColumn(name = "UserID", nullable = false, referencedColumnName = "UserID") // Liên kết với bảng KhachHang
     private KhachHang khachHang;
 
     @Temporal(TemporalType.DATE)
@@ -29,56 +36,5 @@ public class DonHang implements Serializable {
     @OneToMany(mappedBy = "donHang", cascade = CascadeType.ALL)
     private List<ChiTietDonHang> chiTietDonHangs;
 
-    // Constructor không tham số
-    public DonHang() {
-    }
-
-    // Getter & Setter
-    public String getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
-    }
-
-    public KhachHang getKhachHang() {
-        return khachHang;
-    }
-
-    public void setKhachHang(KhachHang khachHang) {
-        this.khachHang = khachHang;
-    }
-
-    public Date getNgayDatHang() {
-        return ngayDatHang;
-    }
-
-    public void setNgayDatHang(Date ngayDatHang) {
-        this.ngayDatHang = ngayDatHang;
-    }
-
-    public String getTrangThaiDon() {
-        return trangThaiDon;
-    }
-
-    public void setTrangThaiDon(String trangThaiDon) {
-        this.trangThaiDon = trangThaiDon;
-    }
-
-    public Double getTongGiaTri() {
-        return tongGiaTri;
-    }
-
-    public void setTongGiaTri(Double tongGiaTri) {
-        this.tongGiaTri = tongGiaTri;
-    }
-
-    public List<ChiTietDonHang> getChiTietDonHangs() {
-        return chiTietDonHangs;
-    }
-
-    public void setChiTietDonHangs(List<ChiTietDonHang> chiTietDonHangs) {
-        this.chiTietDonHangs = chiTietDonHangs;
-    }
+    
 }

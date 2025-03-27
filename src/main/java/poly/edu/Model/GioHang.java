@@ -7,15 +7,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "GioHang")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class GioHang implements Serializable {
 	
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "CartID", updatable = false, nullable = false)
-    private String cartID;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Column(name = "CartID", updatable = false, nullable = false)
+	private Long cartID;
 
     @OneToOne
     @JoinColumn(name = "UserID")
@@ -24,58 +30,12 @@ public class GioHang implements Serializable {
     @Column(name = "TongGiaTri")
     private Double tongGiaTri;
 
-    @ManyToOne
-    @JoinColumn(name = "CouponID", nullable = true)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CouponID", nullable = true, referencedColumnName = "CouponID")
     private MaKhuyenMai maKhuyenMai;
 
     @OneToMany(mappedBy = "gioHang", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GioHangChiTiet> gioHangChiTiets = new ArrayList<>();
 
-    // Constructor không tham số
-    public GioHang() {
-    }
-
-   
-
-    // toString() để debug
-	/*
-	 * @Override public String toString() { return "GioHang{" + "cartID='" + cartID
-	 * + '\'' + ", tongGiaTri=" + getTongGiaTri() + ", khachHang=" + (khachHang !=
-	 * null ? khachHang.getUserID() : "null") + ", maKhuyenMai=" + (maKhuyenMai !=
-	 * null ? maKhuyenMai.getCouponID() : "null") + ", gioHangChiTiets=" +
-	 * (gioHangChiTiets != null ? gioHangChiTiets.size() : 0) + '}'; }
-	 */
-
-    // Getter & Setter
-    public String getCartID() {
-        return cartID;
-    }
-
-    public void setCartID(String cartID) {
-        this.cartID = cartID;
-    }
-
-    public KhachHang getKhachHang() {
-        return khachHang;
-    }
-
-    public void setKhachHang(KhachHang khachHang) {
-        this.khachHang = khachHang;
-    }
-
-    public MaKhuyenMai getMaKhuyenMai() {
-        return maKhuyenMai;
-    }
-
-    public void setMaKhuyenMai(MaKhuyenMai maKhuyenMai) {
-        this.maKhuyenMai = maKhuyenMai;
-    }
-
-    public List<GioHangChiTiet> getGioHangChiTiets() {
-        return gioHangChiTiets;
-    }
-
-    public void setGioHangChiTiets(List<GioHangChiTiet> gioHangChiTiets) {
-        this.gioHangChiTiets = gioHangChiTiets;
-    }
+    
 }
