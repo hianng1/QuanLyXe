@@ -77,25 +77,29 @@
 					<tbody>
 
 						<c:forEach var="item" items="${CART_ITEMS}">
-							<form action="/cart/update" method="post">
-								<input type="hidden" name="id" value="${item.cartID}"/>
-							<tr>
-								<td>${item.cartID }</td>
-								<td>${item.phuKienOto.tenPhuKien }</td>
-								<td>${item.phuKienOto.gia}</td>
-								<td><input name="soLuong" value="${item.soLuong}"
-									onblur="this.form.submit()" style="width: 50px;"></td>
-								<td>${item.gia*item.soLuong}</td>
-								<td><a class="btn btn-primary btn-sm"
-									href="/cart/del/${item.cartID }">Remove</a></td>
-							</tr>
-							</form>
-						</c:forEach>
+    <tr>
+        <td>${item.phuKienOto.accessoryID }</td>
+        <td>${item.phuKienOto.tenPhuKien }</td>
+        <td>${item.phuKienOto.gia}</td>
+        <td>
+            <form action="/cart/update" method="post">
+                <input type="hidden" name="id" value="${item.phuKienOto.accessoryID }"/>
+                <input name="soLuong" value="${item.soLuong}" 
+                       onblur="this.form.submit()" style="width: 50px;">
+            </form>
+        </td>
+        <td>${item.gia * item.soLuong}</td>
+        <td>
+            <a class="btn btn-primary btn-sm" 
+               href="/cart/del/${item.phuKienOto.accessoryID }">Remove</a>
+        </td>
+    </tr>
+</c:forEach>
 
 
 					</tbody>
 				</table>
-				<p>Tong Tien:${TOTAL}</p>
+				<p>Tổng Tiền:${TOTAL} đ</p>
 				<hr />
 				<a class="btn btn-primary btn-sm" href="/cart/clear">Clear
 					Cart</a> <a class="btn btn-primary btn-sm" href="/trangchu">Add

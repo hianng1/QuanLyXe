@@ -56,16 +56,16 @@
       <div class="flex items-center space-x-4">
         <div class="text-center">
           <div class="flex items-center justify-center space-x-2">
-            <a href="/cart">
+            <a href="/cart/views">
               <h2 class="text-lg font-semibold hover:text-orange-500">
                 My Cart
               </h2>
             </a>
             <i class="fas fa-shopping-basket text-orange-400 text-lg"></i>
           </div>
-          <p class="text-gray-500 text-sm">
+          <!-- <p class="text-gray-500 text-sm">
             0 items - <span class="font-semibold">0.00 VND</span>
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -74,10 +74,12 @@
   <nav class="bg-orange-500 text-white py-2">
     <div class="container mx-auto flex justify-between items-center">
       <div class="flex space-x-4">
-        <button class="bg-orange-500 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-orange-600">
-          <i class="fas fa-home"> </i>
-          <span> Home </span>
-        </button>
+        <a href="/trangchu">
+		  <button class="bg-orange-500 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-orange-600">
+		    <i class="fas fa-home"></i>
+		    <span> Home </span>
+		  </button>
+		</a>
         <a class="hover:bg-orange-600 px-4 py-2 rounded" href="#">
           Xe oto cũ
         </a>

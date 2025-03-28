@@ -17,14 +17,20 @@ public class CartServiceImp implements CartService{
 	Map<Long, GioHang> maps = new HashMap<Long, GioHang>();
 	
 	@Override
-	public void add(GioHang item) {
-		GioHang cartItem = maps.get(item.getCartID());
-		if(cartItem == null) {
-			maps.put(item.getCartID(), item);
-		}else {
-			cartItem.setSoLuong(cartItem.getSoLuong() + 1);
-		}
-	}
+    public void add(GioHang item) {
+        // Lấy AccessoryID từ sản phẩm trong giỏ hàng
+        Long productId = item.getPhuKienOto().getAccessoryID(); 
+
+        // Kiểm tra sản phẩm đã tồn tại trong giỏ chưa
+        if (maps.containsKey(productId)) {
+            // Nếu có, tăng số lượng
+            GioHang existingItem = maps.get(productId);
+            existingItem.setSoLuong(existingItem.getSoLuong() + 1);
+        } else {
+            // Nếu chưa, thêm mới vào giỏ
+            maps.put(productId, item);
+        }
+    }
 	
 	@Override
 	public void remove(Long id) {

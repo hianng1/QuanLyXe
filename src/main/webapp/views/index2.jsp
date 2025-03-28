@@ -125,7 +125,6 @@
               <div class="d-flex justify-content-between mt-3">
                 <a href="#" class="btn btn-outline-primary" onclick="window.location.href='/car?xeID=${xe.productID}'">Chi
                   tiết</a>
-                <a href="#" class="btn btn-danger">Mua ngay</a>
               </div>
             </div>
           </div>
@@ -177,11 +176,20 @@
 	        <form action="/addToCart" method="post">
 	            <input type="hidden" name="productId" value="${phukien.accessoryID}" />
 	            <input type="hidden" name="quantity" value="1" />
-	            <a class="btn btn-primary w-full bg-black text-yellow-400 py-2 rounded-full font-semibold mt-3 hover:bg-gray-800" href="/cart/add/${phukien.accessoryID}">ADD TO CART</a>
+	            <a class="btn btn-primary w-full bg-black text-yellow-400 py-2 rounded-full font-semibold mt-3 hover:bg-gray-800" href="/cart/add/${phukien.accessoryID}">Thêm vào giỏ</a>
 	        </form>
         </div>
       </c:forEach>
       </div>
+      <!-- Hiển thị thông báo thành công -->
+<div th:if="${successMessage}" class="alert alert-success">
+    ${successMessage}
+</div>
+
+<!-- Hiển thị thông báo lỗi -->
+<div th:if="${errorMessage}" class="alert alert-danger">
+    ${errorMessage}
+</div>
       <jsp:include page="/common/footer.jsp" />
 </body>
 </html>
