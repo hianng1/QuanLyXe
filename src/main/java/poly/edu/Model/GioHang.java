@@ -24,12 +24,20 @@ public class GioHang implements Serializable {
 	private Long cartID;
 
     @OneToOne
-    @JoinColumn(name = "UserID")
+    @JoinColumn(name = "UserID", referencedColumnName = "UserID")
     private KhachHang khachHang;
+    
+    @ManyToOne
+    @JoinColumn(name = "AccessoryID", referencedColumnName = "AccessoryID")
+    private PhuKienOto phuKienOto; // Nếu giỏ hàng chứa sản phẩm
+    
+    @Column(name = "SoLuong", nullable = false)
+    private int soLuong; // Số lượng sản phẩm trong giỏ
 
-    @Column(name = "TongGiaTri")
-    private Double tongGiaTri;
-
+    public double getGia() {
+        return this.phuKienOto != null ? this.phuKienOto.getGia() : 0.0;
+    }
+    
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CouponID", nullable = true, referencedColumnName = "CouponID")
     private MaKhuyenMai maKhuyenMai;

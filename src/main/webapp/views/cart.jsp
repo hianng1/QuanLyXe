@@ -3,75 +3,107 @@
 <%@ page import="poly.edu.Model.PhuKienOto" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giỏ hàng</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Thêm file CSS nếu có -->
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AutoCu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+		crossorigin="anonymous">
+	
+	<!-- Font Awesome CSS -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	    
+    <style>
+      .card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .card-img-top {
+	    width: 100%;
+	    height: 180px; 
+	    object-fit: cover;
+	  }
+	  img {
+		  width: 100%;
+		  height: 200px;
+		  object-fit: cover; /* Giữ tỷ lệ ảnh */
+		}
+		button:hover {
+		  transition: background-color 0.3s ease;
+		}
+    </style>
 </head>
 <body>
 	<jsp:include page="/common/header.jsp" />
     <div class="container">
-        <h2>Giỏ hàng của bạn</h2>
+		<h2>List Products</h2>
+		<div class="rows">
+			<div class="col-sm-9">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Quantity</th>
+							<th>Amount</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
 
-        <%
-            List<PhuKienOto> cart = (List<PhuKienOto>) session.getAttribute("cart");
-            double total = 0;
-            NumberFormat currencyFormat = NumberFormat.getInstance(new Locale("vi", "VN"));
-        %>
+						<c:forEach var="item" items="${CART_ITEMS}">
+							<form action="/cart/update" method="post">
+								<input type="hidden" name="id" value="${item.cartID}"/>
+							<tr>
+								<td>${item.cartID }</td>
+								<td>${item.phuKienOto.tenPhuKien }</td>
+								<td>${item.phuKienOto.gia}</td>
+								<td><input name="soLuong" value="${item.soLuong}"
+									onblur="this.form.submit()" style="width: 50px;"></td>
+								<td>${item.gia*item.soLuong}</td>
+								<td><a class="btn btn-primary btn-sm"
+									href="/cart/del/${item.cartID }">Remove</a></td>
+							</tr>
+							</form>
+						</c:forEach>
 
-        <% if (cart == null || cart.isEmpty()) { %>
-            <p>Giỏ hàng của bạn đang trống.</p>
-        <% } else { %>
-            <table border="1" width="100%">
-                <thead>
-                    <tr>
-                        <th>Ảnh</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Số lượng</th>
-                        <th>Thành tiền</th>
-                        <th>Hành động</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for (PhuKienOto item : cart) { 
-                        double subtotal = item.getGia() * item.getSoLuong();
-                        total += subtotal;
-                    %>
-                        <tr>
-                            <td><img src="<%= item.getAnhDaiDien() %>" alt="<%= item.getTenPhuKien() %>" width="80"></td>
-                            <td><%= item.getTenPhuKien() %></td>
-                            <td><%= currencyFormat.format(item.getGia()) %> VND</td>
-                            <td>
-                                <form action="updateCart" method="post">
-                                    <input type="hidden" name="accessoryID" value="<%= item.getAccessoryID() %>">
-                                    <input type="number" name="quantity" value="<%= item.getSoLuong() %>" min="1">
-                                    <button type="submit">Cập nhật</button>
-                                </form>
-                            </td>
-                            <td><%= currencyFormat.format(subtotal) %> VND</td>
-                            <td>
-                                <a href="removeFromCart?accessoryID=<%= item.getAccessoryID() %>" class="btn btn-danger">
-                                    Xóa
-                                </a>
-                            </td>
-                        </tr>
-                    <% } %>
-                </tbody>
-            </table>
 
-            <h3>Tổng tiền: <%= currencyFormat.format(total) %> VND</h3>
+					</tbody>
+				</table>
+				<p>Tong Tien:${TOTAL}</p>
+				<hr />
+				<a class="btn btn-primary btn-sm" href="/cart/clear">Clear
+					Cart</a> <a class="btn btn-primary btn-sm" href="/trangchu">Add
+					more</a>
+			</div>
+		</div>
 
-            <div class="actions">
-                <a href="checkout" class="btn btn-success">Thanh toán</a>
-                <a href="index.jsp" class="btn btn-primary">Tiếp tục mua hàng</a>
-            </div>
-        <% } %>
-    </div>
+	</div>
     <jsp:include page="/common/footer.jsp" />
 </body>
 </html>

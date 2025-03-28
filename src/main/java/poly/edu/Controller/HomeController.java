@@ -19,6 +19,7 @@ import poly.edu.Model.MaKhuyenMai;
 import poly.edu.Model.NhanVien;
 import poly.edu.Model.PhuKienOto;
 import poly.edu.Model.SanPham;
+import poly.edu.Service.PhuKienOtoService;
 
 @Controller
 public class HomeController {
@@ -34,7 +35,8 @@ public class HomeController {
     private MaKhuyenMaiDAO maKhuyenMaiDAO;
     @Autowired
     private PhuKienOtoDAO phuKienOtoDAO;
-
+    @Autowired
+    private PhuKienOtoService phuKienOtoService;
     @GetMapping(value = "/trangchu", produces = "text/html; charset=UTF-8")
     public String home(Model model) {
         try {
@@ -48,7 +50,7 @@ public class HomeController {
             model.addAttribute("khachHangList", khachHangList);
             List<MaKhuyenMai> maKhuyenMaiList = maKhuyenMaiDAO.findAll();
             model.addAttribute("maKhuyenMaiList", maKhuyenMaiList);
-            List<PhuKienOto> phuKienOtoList = phuKienOtoDAO.findAll();
+            List<PhuKienOto> phuKienOtoList = phuKienOtoService.findAll();
             model.addAttribute("phuKienOtoList", phuKienOtoList);
             
         } catch (Exception e) {

@@ -177,9 +177,7 @@
 	        <form action="/addToCart" method="post">
 	            <input type="hidden" name="productId" value="${phukien.accessoryID}" />
 	            <input type="hidden" name="quantity" value="1" />
-	            <button type="submit" class="w-full bg-black text-yellow-400 py-2 rounded-full font-semibold mt-3 hover:bg-gray-800">
-	                ADD TO CART
-	            </button>
+	            <a class="btn btn-primary w-full bg-black text-yellow-400 py-2 rounded-full font-semibold mt-3 hover:bg-gray-800" href="/cart/add/${phukien.accessoryID}">ADD TO CART</a>
 	        </form>
         </div>
       </c:forEach>
