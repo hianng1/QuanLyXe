@@ -1,195 +1,208 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<%-- <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%> --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>AutoCu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCu - Chuyên xe cũ & phụ tùng</title>
+    
+    <!-- External Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!-- Bootstrap CSS -->
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-		crossorigin="anonymous">
-	
-	<!-- Font Awesome CSS -->
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-	    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-      .card:hover {
-        transform: translateY(-5px);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-      .card-img-top {
-	    width: 100%;
-	    height: 180px; 
-	    object-fit: cover;
-	  }
-	  img {
-		  width: 100%;
-		  height: 200px;
-		  object-fit: cover; /* Giữ tỷ lệ ảnh */
-		}
-		button:hover {
-		  transition: background-color 0.3s ease;
-		}
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .price-text {
+            color: #dc3545;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .section-divider {
+            width: 15%;
+            height: 1px;
+            background-color: #e5e7eb;
+        }
     </style>
 </head>
-<body class="font-roboto ">
-	<jsp:include page="/common/header.jsp" />
+<body class="font-roboto bg-gray-50">
+    <jsp:include page="/common/header.jsp" />
 
-  <!-- Main Content -->
-  <div class="relative w-full bg-white">
-    <div class="relative w-full h-screen flex items-center justify-center">
-      <!-- Background Image -->
-      <img src="/imgs/car1.avif" alt="Car" class="absolute inset-0 w-full h-full object-cover" />
+    <!-- Hero Section -->
+    <section class="relative h-[80vh] flex items-center justify-center">
+        <div class="absolute inset-0">
+            <img src="/imgs/car1.avif" alt="Hero Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+                Tìm kiếm chiếc xe yêu thích của bạn<br>
+                & trải nghiệm ngay hôm nay
+            </h1>
+            <p class="text-lg md:text-xl text-orange-200 mb-8 drop-shadow-lg">
+                Khám phá bộ sưu tập đa dạng từ xe bình dân đến hạng sang cùng các phụ kiện chính hãng
+            </p>
+            <a href="#cars-section" class="btn btn-outline-light px-8 py-3 rounded-lg hover:bg-white/10 transition">
+                Khám phá ngay
+            </a>
+        </div>
+    </section>
 
-      <!-- Overlay -->
-      <div class="relative z-10 text-center text-white px-6 lg:px-12">
-        <h1 class="text-5xl font-bold leading-tight drop-shadow-lg">
-          Tìm kiếm chiếc xe yêu thích của bạn <br />
-          & hãy thử nó
-        </h1>
-        <p class="mt-4 text-lg text-orange-300 drop-shadow-lg">
-          Khách hàng tìm đến chúng tôi sẽ được đáp ứng nhu cầu đa dạng với
-          các<br />
-
-          thương hiệu xe hơi từ bình dân đến hạng sang và cả những dòng siêu
-          xe thể thao.
-        </p>
-        <button
-          class="mt-6 px-6 py-3 border border-white font-semibold rounded-lg hover:bg-white hover:text-black transition drop-shadow-lg">
-          LỰA CHỌN NGAY
-        </button>
-      </div>
-
-      <!-- Overlay Background -->
-      <div class="absolute inset-0 bg-black opacity-50"></div>
-    </div>
-
-    <div class="mt-0 text-center border-t border-gray-300 pt-10">
-      <h2 class="text-2xl font-bold text-gray-900">
-        XE QUA SỬ DỤNG ĐANG BÁN
-      </h2>
-      <div class="flex items-center justify-center mt-2 relative w-full">
-        <div class="w-1/6 h-px bg-gray-300"></div>
-        <span class="mx-3 text-orange-500 text-2xl"><i class="fas fa-car"> </i></span>
-        <div class="w-1/6 h-px bg-gray-300"></div>
-      </div>
-    </div>
-  </div>
-  <!--Card car-->
-  <div class="container py-5">
-    <div class="row g-4">
-      <!-- car 1-->
-      <c:forEach var="xe" items="${sanPhamList}">
-        <div class="col-md-3">
-          <div class="card shadow-sm rounded-lg overflow-hidden">
-            <img src="/imgs/${xe.anhDaiDien}" class="card-img-top" alt="${xe.tenSanPham}"/>
-            <div class="card-body">
-              <h5 class="card-title font-bold text-lg">
-                ${xe.tenSanPham}
-              </h5>
-              <p class="d-flex justify-content-between text-muted">
-                <span><i class="fas fa-calendar text-green-600"> </i> <fmt:formatDate value="${xe.ngaySanXuat}" pattern="yyyy" /></span>
-                <span><i class="fa fa-map-marker"></i> ${xe.diaDiemLayXe}</span>
-              </p>
-              <p class="d-flex justify-content-between text-muted">
-                <span><i class="fas fa-oil-can text-blue-600"> </i> ${xe.nhienLieu}</span>
-                <span><i class="fas fa-car-battery text-yellow-700"> </i> ${xe.truyenDong}</span>
-              </p>
-              <p class="text-danger fw-bold fs-5">
-				    <fmt:formatNumber value="${xe.gia}" type="number" groupingUsed="true" /> VND
-				</p>
-
-              <div class="d-flex justify-content-between mt-3">
-                <a href="#" class="btn btn-outline-primary" onclick="window.location.href='/car?xeID=${xe.productID}'">Chi
-                  tiết</a>
-              </div>
+    <!-- Used Cars Section -->
+    <section id="cars-section" class="container py-12">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">XE ĐÃ QUA SỬ DỤNG</h2>
+            <div class="flex items-center justify-center space-x-4">
+                <div class="section-divider"></div>
+                <i class="fas fa-car text-orange-500 text-2xl"></i>
+                <div class="section-divider"></div>
             </div>
-          </div>
         </div>
-      </c:forEach>
-      <!-- Card phu kien xe 1-->
-      <div class="mt-0 text-center  pt-10">
-        <h2 class="text-2xl font-bold text-gray-900">
-          PHỤ KIỆN XE BÁN CHẠY
-        </h2>
-        <div class="flex items-center justify-center mt-2 relative w-full">
-          <div class="w-1/6 h-px bg-gray-300"></div>
-          <span class="mx-3 text-orange-500 text-2xl"><i class="fas fa-tools"> </i></span>
-          <div class="w-1/6 h-px bg-gray-300"></div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        <c:forEach var="phukien" items="${phuKienOtoList}">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-lg shadow-md p-4 w-64 relative">
 
-          <div class="relative">
-            <img src="/imgs/${phukien.anhDaiDien}" alt="${phukien.tenPhuKien}" class="rounded-lg w-full h-[200px] object-cover">
-            <div class="absolute top-2 right-2 flex flex-col space-y-2">
-              <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-200">
-                <i class="fas fa-search text-gray-600"></i>
-              </button>
-              <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-200">
-                <i class="far fa-heart text-gray-600"></i>
-              </button>
-              <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-200">
-                <i class="fas fa-sync-alt text-gray-600"></i>
-              </button>
+        <div class="row g-4">
+            <c:forEach var="xe" items="${sanPhamList}">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 card-hover-effect border-0 shadow-sm">
+                        <img src="/imgs/${xe.anhDaiDien}" class="card-img-top object-cover" alt="${xe.tenSanPham}" style="height: 200px;">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-3">${xe.tenSanPham}</h5>
+                            
+                            <div class="d-flex justify-content-between text-muted small mb-2">
+                                <span><i class="fas fa-calendar text-success me-1"></i> <fmt:formatDate value="${xe.ngaySanXuat}" pattern="yyyy" /></span>
+                                <span><i class="fas fa-map-marker-alt text-danger me-1"></i> ${xe.diaDiemLayXe}</span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between text-muted small mb-3">
+                                <span><i class="fas fa-gas-pump text-primary me-1"></i> ${xe.nhienLieu}</span>
+                                <span><i class="fas fa-cog text-warning me-1"></i> ${xe.truyenDong}</span>
+                            </div>
+                            
+                            <p class="price-text mb-4">
+                                <fmt:formatNumber value="${xe.gia}" pattern="#,##0" /> VND
+                            </p>
+                            
+                            <a href="/car?xeID=${xe.productID}" class="btn btn-outline-primary w-100">
+                                <i class="fas fa-info-circle me-2"></i>Chi tiết
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section class="container py-12">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">PHỤ KIỆN BÁN CHẠY</h2>
+            <div class="flex items-center justify-center space-x-4">
+                <div class="section-divider"></div>
+                <i class="fas fa-tools text-orange-500 text-2xl"></i>
+                <div class="section-divider"></div>
             </div>
-          </div>
-          <h2 class="text-lg font-semibold mt-3"> ${phukien.tenPhuKien} </h2>
-          <div class="flex text-yellow-500 mt-1">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-          	<p class="text-danger fw-bold fs-5">
-				<fmt:formatNumber value="${phukien.gia}" type="number" groupingUsed="true" /> VND
-			</p>
-          
-            <!-- Form gửi yêu cầu thêm vào giỏ hàng -->
-	        <form action="/addToCart" method="post">
-	            <input type="hidden" name="productId" value="${phukien.accessoryID}" />
-	            <input type="hidden" name="quantity" value="1" />
-	            <a class="btn btn-primary w-full bg-black text-yellow-400 py-2 rounded-full font-semibold mt-3 hover:bg-gray-800" href="/cart/add/${phukien.accessoryID}">Thêm vào giỏ</a>
-	        </form>
         </div>
-      </c:forEach>
-      </div>
-      <!-- Hiển thị thông báo thành công -->
-<div th:if="${successMessage}" class="alert alert-success">
-    ${successMessage}
-</div>
 
-<!-- Hiển thị thông báo lỗi -->
-<div th:if="${errorMessage}" class="alert alert-danger">
-    ${errorMessage}
-</div>
-      <jsp:include page="/common/footer.jsp" />
+        <div class="row g-4">
+            <c:forEach var="phukien" items="${phuKienOtoList}">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card h-100 card-hover-effect border-0 shadow-sm">
+                        <div class="position-relative">
+                            <img src="/imgs/${phukien.anhDaiDien}" class="card-img-top object-cover" alt="${phukien.tenPhuKien}" style="height: 200px;">
+                            
+                            <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2">
+                                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                                    <i class="fas fa-search text-primary"></i>
+                                </button>
+                                <button class="btn btn-light btn-sm rounded-circle shadow-sm">
+                                    <i class="far fa-heart text-danger"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-2">${phukien.tenPhuKien}</h5>
+                            
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-muted small ms-2">(15 đánh giá)</span>
+                            </div>
+                            
+                            <p class="price-text mb-2">
+                                <fmt:formatNumber value="${phukien.gia}" pattern="#,##0" /> VND
+                            </p>
+                            
+                            <form action="/addToCart" method="post">
+					            <input type="hidden" name="productId" value="${phukien.accessoryID}" />
+					            <input type="hidden" name="quantity" value="1" />
+					            <a class="btn btn-primary w-full bg-black text-yellow-400 py-2 rounded-full font-semibold mt-3 hover:bg-gray-800" href="/cart/add/${phukien.accessoryID}">Thêm vào giỏ</a>
+					        </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </section>
+
+    <!-- Notification Section -->
+    <c:if test="${not empty successMessage}">
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div class="toast show" role="alert">
+                <div class="toast-header bg-success text-white">
+                    <strong class="me-auto">Thành công</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body">${successMessage}</div>
+            </div>
+        </div>
+    </c:if>
+
+    <c:if test="${not empty errorMessage}">
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div class="toast show" role="alert">
+                <div class="toast-header bg-danger text-white">
+                    <strong class="me-auto">Lỗi</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body">${errorMessage}</div>
+            </div>
+        </div>
+    </c:if>
+
+    <jsp:include page="/common/footer.jsp" />
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Toast Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+            var toastList = toastElList.map(function(toastEl) {
+                return new bootstrap.Toast(toastEl, {
+                    autohide: true,
+                    delay: 5000
+                })
+            })
+        })
+    </script>
 </body>
 </html>
